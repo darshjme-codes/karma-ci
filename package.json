@@ -1,0 +1,18 @@
+{
+  "name": "karma-ci",
+  "version": "1.0.0",
+  "description": "Self-healing CI/CD toolkit. What goes around comes around. 🔱 By Darshj.me",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "action.yml"],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["ci", "cd", "github-actions", "self-healing", "retry", "ci-cd"],
+  "author": "Darshj.me",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  }
+}

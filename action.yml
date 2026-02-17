@@ -1,0 +1,41 @@
+name: 'Karma CI — Self-Healing CI/CD'
+description: 'Analyze failures, suggest fixes, smart retry with exponential backoff. What goes around comes around. 🔱'
+author: 'Darshj.me'
+
+inputs:
+  max-retries:
+    description: 'Maximum number of retries'
+    required: false
+    default: '3'
+  base-delay-ms:
+    description: 'Base delay in milliseconds for exponential backoff'
+    required: false
+    default: '1000'
+  slack-webhook:
+    description: 'Slack webhook URL for notifications'
+    required: false
+  discord-webhook:
+    description: 'Discord webhook URL for notifications'
+    required: false
+  analyze-logs:
+    description: 'Whether to analyze CI logs for failure patterns'
+    required: false
+    default: 'true'
+  auto-heal:
+    description: 'Whether to suggest automatic fixes'
+    required: false
+    default: 'true'
+
+outputs:
+  healed:
+    description: 'Whether the build was healed'
+  attempts:
+    description: 'Number of attempts made'
+  failure-pattern:
+    description: 'Detected failure pattern, if any'
+  suggestion:
+    description: 'Fix suggestion, if any'
+
+runs:
+  using: 'node20'
+  main: 'dist/action.js'
